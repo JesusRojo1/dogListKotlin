@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--El Top_toTopOf es para anclar
+    la parte de arriba de la vista con el layout,
+    es decir el constraintlayout-->
+    <!--El Bottom_toBottomOf es para anclar
+        la parte de abajo de la vista con el layout,
+        es decir el constraintlayout-->
+    <!--El End_toEndOf es para anclar
+        la parte de la derecha de la vista con el layout,
+        es decir el constraintlayout-->
+    <!--El Start_toStartOf es para anclar
+        la parte de la izquierda de la vista con el layout,
+        es decir el constraintlayout-->
+
+    <!--NOTA: SI QUEREMOS ANCLAR LAS POSICIONES DE LOS
+        ELEMENTOS DE LA VISTA ENTRE ESTOS MISMOS SE DEBE USAR
+        EL ID DEL ELEMENTO A ANCLAR Y NO EL "PARENT"
+        EJEMPLO:
+        app:layout_constraintTop_toBottomOf="@+id/buttonExample"
+        RECUERDE QUE NO SE LLAMAN IGUAL QUE ARRIBA, NECESITA
+        LA "Direccion"_toBottomOf-->
+
+    <!--NOTA2: SI QUEREMOS ANCLAR ELEMENTOS DE FORMA RAPIDA
+        Y QUE ESTEN RESPONSIVE, USA Horizontal_chainStyle o
+        Vertical_chainStyle, esto es para ponerlos bonitos
+        y acomodados los elementos en la vista
+        EJEMPLO:
+        app:layout_constraintHorizontal_chainStyle=
+        "packed" (juntos / pegados), "spread_inside"
+        (separados con el mismo margen), "spread"
+        (divide el espacio sobrante entre todos los elementos)
+        -->
+
+    <!--El Horizontal_bias es para mover el contenido
+        de maneras distintas y comodas
+        de la vista con el layout,
+        es decir el constraintlayout. Este es tipo double
+        siendo asi 0 la izquierda total y 1 la derecha total-->
+
+    <!--El Vertical_bias es para mover el contenido
+        de maneras distintas y comodas
+        de la vista con el layout,
+        es decir el constraintlayout. Este es tipo double
+        siendo asi 0 la arriba total y 1 la abajo total-->
+
+    <!--El marginStart y marginEnd es para acomodar
+        los elementos y que estos tengan una separacion
+        (cuestion de dise;o)
+        de la vista con el layout,
+        es decir el constraintlayout.-->
+
+    <!--El Guideline es una linea invisible para la app
+        pero que nos permite ver a nosotros como vamos
+        administrar el espacio de la vista y donde asignaremos
+        los elementos de esta de manera responsive.
+        Ejemplo:
+        Tienes una vista y quieres dividirla en dos?, usa
+        guideline con la propiedad Guide_percent="0.5" (50%)
+        de la vista mas orientation="vertical / horizontal",
+        y dividira la vista por la mitad, ahora podremos anclar
+        los elementos a la vista con el layout,
+        es decir, el constraintlayout y a la linea invisible
+        del 50% y se vera asi en todos los dispositivos.
+        PD: PUEDES PONER MAS DE UN GUIDELINE CON EL FIN
+        DE HACER CUADRICULAS EJEMPLO: EL JUEGO DE LA VIEJA /
+        TIC TAC TOE-->
+
+    <SearchView
+        android:id="@+id/searchDog"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Search your favorite dog"
+        app:layout_constraintBottom_toBottomOf="@+id/listViewDogs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listViewDogs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchDog"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
